@@ -1,6 +1,8 @@
 = insert_into
 
-Description goes here.
+Insert some random text into XML/HTML.
+
+InsertInto.insert("My Text").into("<tag></tag>").between_tag("tag").process
 
 == Note on Patches/Pull Requests
  
