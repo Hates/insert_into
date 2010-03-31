@@ -50,13 +50,18 @@ describe InsertInto do
   end
 
   it "should insert text into a string if target tag is supplied" do
-    result = InsertInto.new.insert("insert").into("<into/>").between_tag("into").process
-    result.should == "<into>insert</into>"
+    result = InsertInto.new.insert("<foo>insert</foo>").into("<into/>").between_tag("into").process
+    result.should == "<into><foo>insert</foo></into>"
   end
 
   it "should insert text multiple times into a string if target tag is supplied" do
-    result = InsertInto.new.insert("insert").into("<wrapper><into/><into/></wrapper>").between_tag("into").process
-    result.should == "<wrapper><into>insert</into><into>insert</into></wrapper>"
+    result = InsertInto.new.insert("<foo>insert</foo>").into("<bar><into/><into/></bar>").between_tag("into").process
+    result.should == "<bar><into><foo>insert</foo></into><into><foo>insert</foo></into></bar>"
+  end
+
+  it "should insert text after a tag" do
+    result = InsertInto.new.insert("<for>insert</foo>").into("<bar><into/></bar>").after_tag("into").process
+    result.should == "<bar><into/><foo>insert</foo></bar>"
   end
 
 end
