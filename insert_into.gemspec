@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Richard Hart"]
   s.date = %q{2010-03-31}
-  s.description = %q{TODO: longer description of your gem}
+  s.description = %q{Insert text into XML/HTML.}
   s.email = %q{richard@ur-ban.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "insert_into.gemspec",
      "lib/insert_into.rb",
      "spec/insert_into_spec.rb",
      "spec/spec.opts",
@@ -32,7 +33,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
-  s.summary = %q{TODO: one-line summary of your gem}
+  s.summary = %q{Insert text into XML/HTML.}
   s.test_files = [
     "spec/insert_into_spec.rb",
      "spec/spec_helper.rb"
