@@ -2,11 +2,11 @@
 
 Insert some random text into XML/HTML.
 
-InsertInto.new.insert("text").into("<tag/>").between_tag("tag").process
+InsertInto.new.insert("text").into("<wrapper><tag/></wrapper>").between_tag("tag").process
 
 Results in:
 
-<tag>text</tag>
+<wrapper><tag>text</tag></wrapper>
 
 == Note on Patches/Pull Requests
  
