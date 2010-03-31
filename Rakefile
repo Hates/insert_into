@@ -5,13 +5,12 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "insert_into"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Insert text into XML/HTML.}
+    gem.description = %Q{Insert text into XML/HTML.}
     gem.email = "richard@ur-ban.com"
     gem.homepage = "http://github.com/Hates/insert_into"
     gem.authors = ["Richard Hart"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
