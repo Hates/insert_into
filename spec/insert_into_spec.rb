@@ -59,8 +59,13 @@ describe InsertInto do
     result.should == "<bar><into><foo>insert</foo></into><into><foo>insert</foo></into></bar>"
   end
 
+  it "should insert text before a tag" do
+    result = InsertInto.new.insert("<foo>insert</foo>").into("<bar><into/></bar>").before_tag("into").process
+    result.should == "<bar><foo>insert</foo><into/></bar>"
+  end
+
   it "should insert text after a tag" do
-    result = InsertInto.new.insert("<for>insert</foo>").into("<bar><into/></bar>").after_tag("into").process
+    result = InsertInto.new.insert("<foo>insert</foo>").into("<bar><into/></bar>").after_tag("into").process
     result.should == "<bar><into/><foo>insert</foo></bar>"
   end
 

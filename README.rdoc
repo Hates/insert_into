@@ -8,6 +8,12 @@ Results in:
 
 <wrapper><tag>text</tag></wrapper>
 
+Supports:
+
+between_tag
+before_tag
+after_tag
+
 == Note on Patches/Pull Requests
  
 * Fork the project.

@@ -32,6 +32,12 @@ class InsertInto
     self
   end
 
+  def before_tag target_tag
+    @target_tag = target_tag
+    @type = :before
+    self
+  end
+
   def after_tag target_tag
     @target_tag = target_tag
     @type = :after
@@ -40,10 +46,14 @@ class InsertInto
 
   def process
     return @insert_text << into_text if @target_tag.empty?
-    #@into_text.at(@target_tag).swap(insert_text)
     @into_text.search(@target_tag) do |node|
-      #node.prepend insert_text
-      node.after insert_text
+      if @type == :after
+        node.after insert_text
+      elsif @type == :before
+        node.before insert_text
+      else
+        node.inner_html insert_text
+      end
     end
     into_text
   end
