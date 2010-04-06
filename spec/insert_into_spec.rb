@@ -18,8 +18,8 @@ describe InsertInto do
   end
 
   it "should initialize the text to be inserted into" do
-    ii = InsertInto.new.into("<into/>")
-    ii.into_text.should == "<into/>"
+    ii = InsertInto.new.into("<into />")
+    ii.into_text.should == "<into />"
   end
 
   it "should initialize the target tag as an empty string" do
@@ -33,9 +33,9 @@ describe InsertInto do
   end
 
   it "should initialize multiple values" do
-    ii = InsertInto.new.insert("insert").into("<into/>").between_tag("tag")
+    ii = InsertInto.new.insert("insert").into("<into />").between_tag("tag")
     ii.insert_text.should == "insert"
-    ii.into_text.should == "<into/>"
+    ii.into_text.should == "<into />"
     ii.target_tag.should == "tag"
   end
 
@@ -45,8 +45,8 @@ describe InsertInto do
   end
 
   it "should insert text before a string if no target tag is supplied" do
-    result = InsertInto.new.insert("insert").into("<into/>").process
-    result.should == "insert<into/>"
+    result = InsertInto.new.insert("insert").into("<into />").process
+    result.should == "insert<into />"
   end
 
   it "should insert text into a string if target tag is supplied" do
@@ -59,14 +59,24 @@ describe InsertInto do
     result.should == "<bar><into><foo>insert</foo></into><into><foo>insert</foo></into></bar>"
   end
 
+  it "should insert text into a string before the existing content if target tag is supplied" do
+    result = InsertInto.new.insert("<foo>insert</foo>").into("<into>into content</into>").prepend_to_tag("into").process
+    result.should == "<into><foo>insert</foo>into content</into>"
+  end
+
+  it "should insert text into a string after the existing content if target tag is supplied" do
+    result = InsertInto.new.insert("<foo>insert</foo>").into("<into>into content</into>").append_to_tag("into").process
+    result.should == "<into>into content<foo>insert</foo></into>"
+  end
+
   it "should insert text before a tag" do
-    result = InsertInto.new.insert("<foo>insert</foo>").into("<bar><into/></bar>").before_tag("into").process
-    result.should == "<bar><foo>insert</foo><into/></bar>"
+    result = InsertInto.new.insert("<foo>insert</foo>").into("<bar><into /></bar>").before_tag("into").process
+    result.should == "<bar><foo>insert</foo><into /></bar>"
   end
 
   it "should insert text after a tag" do
-    result = InsertInto.new.insert("<foo>insert</foo>").into("<bar><into/></bar>").after_tag("into").process
-    result.should == "<bar><into/><foo>insert</foo></bar>"
+    result = InsertInto.new.insert("<foo>insert</foo>").into("<bar><into /></bar>").after_tag("into").process
+    result.should == "<bar><into /><foo>insert</foo></bar>"
   end
 
 end

@@ -10,9 +10,11 @@ Results in:
 
 Supports:
 
-between_tag
-before_tag
-after_tag
+*between_tag*
+*before_tag*
+*after_tag*
+*prepend_to_tag*
+*append_to_tag*
 
 == Note on Patches/Pull Requests
  
