@@ -65,9 +65,9 @@ class InsertInto
         when :before
           node.before insert_text
         when :prepend_to_tag
-          node.inner_html (insert_text + node.inner_html)
+          node.inner_html(insert_text + node.inner_html)
         when :append_to_tag
-          node.inner_html (node.inner_html + insert_text)
+          node.inner_html(node.inner_html + insert_text)
         when :between
           node.inner_html insert_text
       end
