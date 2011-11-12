@@ -17,12 +17,9 @@ Gem::Specification.new do |s|
      "README.rdoc"
   ]
   s.files = [
-    ".document",
      ".gitignore",
-     "LICENSE",
      "README.rdoc",
      "Rakefile",
-     "VERSION",
      "insert_into.gemspec",
      "lib/insert_into.rb",
      "spec/insert_into_spec.rb",
